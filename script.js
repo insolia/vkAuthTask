@@ -44,7 +44,7 @@ function getFriends(at) {
 $(document).ready(function () {
     var b = $("button");
     b.on("click", function (event) {
-        window.location.replace("https://oauth.vk.com/authorize?client_id=5164278&display=page&redirect_uri=http://localhost:63342/jobHunt/vkAuth/index.html&scope=friends&response_type=token&v=5.84&state=123456");
+        window.location.replace("https://oauth.vk.com/authorize?client_id=5164278&display=page&redirect_uri=https://insolia.github.io/vkAuthTask&scope=friends&response_type=token&v=5.84&state=123456");
     });
     var at = checkAT();
     if (at !== 0) {
