@@ -40,7 +40,7 @@ function getFriends(token) {
         dataType: "jsonp",
         success: function (response) {
             $(".friends-container").append("<b>5 Ваших лучших друзей:</b> <br>");
-            response.response.items.slice(0, 5000).forEach(function (t) {
+            response.response.items.slice(0, 5).forEach(function (t) {
                 $(".friends-container").append(t.first_name + " " + t.last_name + "<br>")
             });
         }
