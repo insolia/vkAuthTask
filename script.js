@@ -3,7 +3,7 @@ var resR = new RegExp('access_token=(\\w*)&');
 
 function setCookie(key, value, expiresT) {
     var expires = new Date();
-    expires.setTime(expires.getTime() + expiresT);
+    expires.setTime(expires.getTime() + expiresT*1000);
     console.log(expires.toUTCString());
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 }
