@@ -4,6 +4,7 @@ var resR = new RegExp('access_token=(\\w*)&');
 function setCookie(key, value, expiresT) {
     var expires = new Date();
     expires.setTime(expires.getTime() + expiresT);
+    console.log(expires.toUTCString());
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 }
 
@@ -15,7 +16,7 @@ function getCookie(key) {
 function checkAT() {
     var results = resR.exec(window.location.href);
     if (results !== null) {
-        var expire = expR.exec(window.location.href);
+        var expire = parseInt(expR.exec(window.location.href)[1]);
 
         document.location.hash = '';
         var token = decodeURI(results[1]);
@@ -51,6 +52,7 @@ $(document).ready(function () {
     var b = $("button");
     b.on("click", function (event) {
         window.location.replace("https://oauth.vk.com/authorize?client_id=5164278&display=page&redirect_uri=https://insolia.github.io/vkAuthTask&scope=friends&response_type=token&v=5.84&state=123456");
+        //window.location.replace("https://oauth.vk.com/authorize?client_id=5164278&display=page&redirect_uri=http://localhost:63342/vkAuth/index.html&scope=friends&response_type=token&v=5.84&state=123456");
     });
     var token = checkAT();
     if (token !== 0) {
